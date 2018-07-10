@@ -18,9 +18,11 @@
     "lint": "tslint src/index.ts"
   },
   "dependencies": {
+    "minimatch": "^3.0.4",
     "mock-require": "^2.0.2"
   },
   "devDependencies": {
+    "@types/minimatch": "^3.0.3",
     "@types/node": "^7.0.8",
     "@types/tape": "^4.2.29",
     "@types/mock-require": "^2.0.0",

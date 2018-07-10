@@ -2,6 +2,7 @@ import * as ts_module from "../node_modules/typescript/lib/tsserverlibrary";
 import * as tslint from 'tslint';
 import * as path from 'path';
 import * as mockRequire from 'mock-require';
+import * as minimatch from 'minimatch';
 
 // Settings for the plugin section in tsconfig.json
 interface Settings {
@@ -361,6 +362,11 @@ function init(modules: { typescript: typeof ts_module }) {
 
                 try {
                     configuration = getConfiguration(fileName, config.configFile);
+                    if (configuration.linterOptions &&
+                        configuration.linterOptions.exclude &&
+                        configuration.linterOptions.exclude.some(function (pattern) { return new minimatch.Minimatch(pattern).match(fileName) })) {
+                        return prior;
+                    }
                 } catch (err) {
                     // TODO: show the reason for the configuration failure to the user and not only in the log
                     // https://github.com/Microsoft/TypeScript/issues/15913
