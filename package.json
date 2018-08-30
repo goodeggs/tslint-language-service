@@ -1,6 +1,6 @@
 {
   "name": "tslint-language-service",
-  "version": "0.9.9",
+  "version": "1.0.0",
   "description": "tslint - language services",
   "main": "out/src/index.js",
   "author": "Angelo ZERR",
@@ -28,11 +28,11 @@
     "@types/mock-require": "^2.0.0",
     "tape": "^4.6.3",
     "tslint": "^5.2.0",
-    "typescript": "^2.7.2",
+    "typescript": "^3.0.1",
     "copyfiles": "^1.2.0"
   },
   "peerDependencies": {
-    "typescript": ">= 2.3.1 < 3",
+    "typescript": "^2.3.1 || ^3.0.0",
     "tslint": ">= 4 < 6"
   }
 }
